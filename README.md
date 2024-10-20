@@ -25,40 +25,11 @@ https://v0.dev/chat/xspGyQIKRrz
 # Project Structure - Claude
 
 ## Overall Project Structure
+```
 📦 dreamnest-app
 ├── 📂 frontend
 │   ├── 📂 landing-app
 │   └── 📂 vr-app
 ├── 📂 backend
 └── docker-compose.yml
-
-## Project Structure for the landing-app
-
-dreamnest-app/frontend/landing-app/
-├── app/
-│   ├── layout.tsx
-│   └── page.tsx
-├── components/
-│   ├── layout/
-│   │   ├── Header.tsx
-│   │   └── Footer.tsx
-│   ├── sections/
-│   │   ├── Hero.tsx
-│   │   ├── Features.tsx
-│   │   ├── Pricing.tsx
-│   │   └── AboutUs.tsx
-│   └── forms/
-│       └── WaitlistForm.tsx
-├── lib/
-│   ├── constants/
-│   │   ├── features.ts
-│   │   ├── pricing.ts
-│   │   └── countries.ts
-│   ├── schemas/
-│   │   └── waitlist.ts
-│   └── types/
-│       └── index.ts
-├── styles/
-│   └── globals.css
-└── public/
-    └── images/
+```
