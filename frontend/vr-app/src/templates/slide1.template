@@ -1,0 +1,4 @@
+
+<a-box color="{{ color1 }}" position="-1 0 -5"></a-box>
+<a-box color="{{ color2 }}" position="0 1 -5"></a-box>
+<a-box color="{{ color3 }}" position="1 0 -5"></a-box>

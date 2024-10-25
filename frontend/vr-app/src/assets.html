@@ -1,0 +1,70 @@
+<!-- markers -->
+<img id="compass" src="public/assets/markers/north_arrow.png" />
+<img id="generic-marker" src="public/assets/markers/gps-marker.png" />
+<img id="shop-marker" src="public/assets/markers/supermarket-icon.png" />
+<img id="school-marker" src="public/assets/markers/edu-icon.png" />
+<img id="hospital-marker" src="public/assets/markers/hospital-icon.png" />
+<img id="bus-stop-marker" src="public/assets/markers/public-transport-icon.png" />
+<img id="eat-marker" src="public/assets/markers/restau-icon.png" />
+<img id="bank-atm-marker" src="public/assets/markers/atm-cash.png" />
+<a-asset-item id="property-marker" src="public/assets/markers/point_marker.glb"></a-asset-item>
+
+<!-- textures -->
+<!-- pebbled ground -->
+<img id="gd_pebble_ao" src="public/assets/textures/ground/pebble/pebble_cemented_floor_ao_1k.jpg">
+<img id="gd_pebble_disp" src="public/assets/textures/ground/pebble/pebble_cemented_floor_disp_1k.jpg">
+<img id="gd_pebble_normal" src="public/assets/textures/ground/pebble/pebble_cemented_floor_nor_gl_1k.jpg">
+<img id="gd_pebble_diff" src="public/assets/textures/ground/pebble/pebble_cemented_floor_diff_1k.jpg">
+
+<!-- tiled ground -->
+<img id="gd_square_tiles_ao" src="public/assets/textures/ground/square-tiled/square_tiles_ao_4k.jpg">
+<img id="gd_square_tiles_disp" src="public/assets/textures/ground/square-tiled/square_tiles_disp_4k.jpg">
+<img id="gd_square_tiles_normal" src="public/assets/textures/ground/square-tiled/square_tiles_nor_gl_4k.jpg">
+<img id="gd_square_tiles_diff" src="public/assets/textures/ground/square-tiled/square_tiles_diff_4k.jpg">
+
+<!-- brick wall -->
+<img id="wall_brick_ao" src="public/assets/textures/wall/brick/brick_wall_001_ao_1k.jpg" />
+<img id="wall_brick_disp" src="public/assets/textures/wall/brick/brick_wall_001_displacement_1k.jpg" />
+<img id="wall_brick_normal" src="public/assets/textures/wall/brick/brick_wall_001_nor_gl_1k.jpg" />
+<img id="wall_brick_diff" src="public/assets/textures/wall/brick/brick_wall_001_diffuse_1k.jpg" />
+
+<!-- checkpoint and navigation related -->
+<a-asset-item id="gem" src="public/assets/markers/rupee.glb"></a-asset-item>
+<a-asset-item id="iron-gate" src="public/assets/listing/others/gate/iron_gate.glb"></a-asset-item>
+<a-asset-item id="flag-pole" src="public/assets/listing/banner/flag_animated.glb"></a-asset-item>
+
+
+<!-- Listing specific -->
+<img id="osm-svg" src="public/assets/listing/map/map_1478x814.svg" />
+<a-mixin id="map_svg" material="src: #osm-svg;"></a-mixin>
+<a-asset-item id="property" src="public/assets/listing/others/modern_city_block.glb"></a-asset-item>
+<img id="master-plan" src="public/assets/listing/infographics/spectra_master_plan.png" />
+<img id="unit-plan" src="public/assets/listing/infographics/1980_3BHK_West_Type-1.webp" />
+<img id="project-overview" src="public/assets/listing/infographics/project-overview.png" />
+<a-asset-item id="project-villa" src="public/assets/listing/others/modern_villa1.glb"></a-asset-item>
+
+<!-- Mixins -->
+
+<!-- These are for the infographics. Frame is the outer box of the infographic, and poster for the image displayed inside the frame. -->
+<a-mixin id="frame" geometry="primitive: plane; width: 5.52; height: 3" material="color: white; shader: flat"
+    animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
+    animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"></a-mixin>
+
+<a-mixin id="poster" geometry="primitive: plane; width: 5; height: 2.8" material="color: white; shader: flat"
+    material="shader: flat" position="0 0 0.005"></a-mixin>
+
+<!-- These are for the textures -->
+<a-mixin id="gd_pebble" material="src: #gd_pebble_diff; repeat: 10 10; 
+                ambientOcclusionMap: #gd_pebble_ao; ambientOcclusionTextureRepeat: 10 10; 
+                displacementMap: #gd_pebble_disp; displacementTextureRepeat: 10 10; 
+                normalMap: #gd_pebble_normal; normalTextureRepeat: 10 10;"></a-mixin>
+
+<a-mixin id="wall_brick" material="src: #wall_brick_diff; repeat: 25 1.5; 
+                ambientOcclusionMap: #wall_brick_ao; ambientOcclusionTextureRepeat: 25 1.5; 
+                displacementMap: #wall_brick_disp; displacementTextureRepeat: 25 1.5; 
+                normalMap: #wall_brick_normal; normalTextureRepeat: 25 1.5;"></a-mixin>
+                
+<a-mixin id="gd_square_tiles" material="src: #gd_square_tiles_diff; repeat: 30 30; 
+                ambientOcclusionMap: #gd_square_tiles_ao; ambientOcclusionTextureRepeat: 30 30; 
+                displacementMap: #gd_square_tiles_disp; displacementTextureRepeat: 30 30; 
+                normalMap: #gd_square_tiles_normal; normalTextureRepeat: 30 30;"></a-mixin>

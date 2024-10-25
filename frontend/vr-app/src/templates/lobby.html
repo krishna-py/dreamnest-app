@@ -1,0 +1,56 @@
+
+<!-- objects in the scene -->
+<!-- setup the platform -->
+<!-- add a raised platform to display the map -->
+<a-image id="location-map" src="#osm-svg" width="5.56" height="3" depth="0.01" position="0 2 -5">
+    <a-text value="Location" align="center" width="5.56" position="0 1.8 0" color="black"></a-text>
+    <a-entity id="amenities-layer" position="0 0 0" rotation="0 0 0">
+        <a-entity gltf-model="#property-marker" position="0 .05 0" rotation="45 45 0"
+            scale="0.051 0.051 0.051"></a-entity>
+        <a-image src="#shop-marker" position="0 -1 .05" rotation="0 0 0" scale="0.2 0.2 0.2"></a-image>
+        <a-image src="#school-marker" position="0 1 0.05" rotation="0 0 0" scale="0.2 0.2 0.2"></a-image>
+        <a-image src="#hospital-marker" position="-1 0 .05" rotation="0 0 0" scale="0.2 0.2 0.2"></a-image>
+        <a-image src="#bus-stop-marker" position="1 0 .05" rotation="0 0 0" scale="0.2 0.2 0.2"></a-image>
+    </a-entity>
+</a-image>
+
+<!-- scaled villa project in the middle levitating, because levitating doesnt work with rotated axis at the moment -->
+<a-entity position="0 0 0" rotation="0 0 0">
+    <a-entity gltf-model="#property" position="1.65 0.5 -0.5" rotation="0 -43 0" scale="0.0001 0.0001 0.0001"
+        levitate></a-entity>
+</a-entity>
+
+<!-- add info boards around the ground -->
+<a-entity id="info1" position="5 2 0" rotation="0 -90 0">
+    <!-- Info title -->
+    <a-text value="Master Plan" align="center" width="5.56" position="0 1.8 0" color="black"></a-text>
+    <!-- Info content -->
+    <a-entity id="info1-content">
+        <a-entity id="info1-img" position="0 0 0" mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #master-plan;" mixin="poster"></a-entity>
+        </a-entity>
+    </a-entity>
+</a-entity>
+
+<a-entity id="info2" position="-5 2 0" rotation="0 90 0">
+    <!-- Info title -->
+    <a-text value="Unit Plan" align="center" width="5.56" position="0 1.8 0" color="black"></a-text>
+    <!-- Info content -->
+    <a-entity id="info2-content">
+        <a-entity id="info2-img" position="0 0 0" mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #unit-plan;" mixin="poster"></a-entity>
+        </a-entity>
+    </a-entity>
+</a-entity>
+
+
+<a-entity id="info3" position="0 2 5" rotation="0 180 0">
+    <!-- Info title -->
+    <a-text value="ASBL Spectra - Gachibowli" align="center" width="5.56" position="0 1.8 0" color="black"></a-text>
+    <!-- Info content -->
+    <a-entity id="info3-content">
+        <a-entity id="info3-img" position="0 0 0" mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #project-overview;" mixin="poster"></a-entity>
+        </a-entity>
+    </a-entity>
+</a-entity>
