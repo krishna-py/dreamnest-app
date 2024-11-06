@@ -1,0 +1,12 @@
+{
+    "name": "rooms",
+    "version": "1.0.0",
+    "description": "Audio/WebRTC room server for DreamNest-App",
+    "scripts": {
+      "start": "node ./server/easyrtc-server.js"
+    },
+    "author": "krishna-py",
+    "dependencies": {
+      "networked-aframe": "^0.12.3"
+    }
+  }
