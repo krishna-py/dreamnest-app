@@ -14,6 +14,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { SiX, SiInstagram, SiYoutubeshorts, SiFacebook } from '@icons-pack/react-simple-icons'
 import { useRouter } from 'next/navigation'
+import { LINKS, COMPANY_INFO } from '@/lib/constants'
 
 
 const features = [
@@ -133,7 +134,7 @@ export default function DreamNest() {
             <li><Button variant="ghost" className="text-white hover:text-[#b7b1d2]" onClick={() => scrollToSection(featuresRef)}><Users className="mr-2 h-4 w-4" /> Features</Button></li>
             <li><Button variant="ghost" className="text-white hover:text-[#b7b1d2]" onClick={() => scrollToSection(pricingRef)}><CreditCard className="mr-2 h-4 w-4" /> Pricing</Button></li>
             <li><Button variant="ghost" className="text-white hover:text-[#b7b1d2]" onClick={() => scrollToSection(aboutUsRef)}><Info className="mr-2 h-4 w-4" /> About Us</Button></li>
-            <li><Button variant="default" className="bg-[#37a987] hover:bg-[#37a987]/90">Try Demo</Button></li>
+            <li><Button variant="default" className="bg-[#37a987] hover:bg-[#37a987]/90" onClick={() => window.open(LINKS.DEMO_URL, '_blank')}>Try Demo</Button></li>
           </ul>
         </nav>
       </header>
@@ -271,24 +272,24 @@ export default function DreamNest() {
                   <CardTitle className="text-[#4b3d8f]">Reach us @</CardTitle>
                 </CardHeader>
                 <CardContent className="flex space-x-4">
-                  <a href="https://x.com/dreamnest-app" target="_blank" rel="noopener noreferrer">
+                  <a href={LINKS.SOCIAL_MEDIA.X} target="_blank" rel="noopener noreferrer">
                     <SiX className="h-6 w-6 text-[#4b3d8f] hover:text-[#37a987]" />
                   </a>
-                  <a href="https://instagram.com/dreamnest-app" target="_blank" rel="noopener noreferrer">
+                  <a href={LINKS.SOCIAL_MEDIA.INSTAGRAM} target="_blank" rel="noopener noreferrer">
                     <SiInstagram className="h-6 w-6 text-[#4b3d8f] hover:text-[#37a987]" />
                   </a>
-                  <a href="https://youtube.com/@dreamnest-app" target="_blank" rel="noopener noreferrer">
+                  <a href={LINKS.SOCIAL_MEDIA.YOUTUBE} target="_blank" rel="noopener noreferrer">
                     <SiYoutubeshorts className="h-6 w-6 text-[#4b3d8f] hover:text-[#37a987]" />
                   </a>
-                  <a href="https://facebook.com/dreamnest-app" target="_blank" rel="noopener noreferrer">
+                  <a href={LINKS.SOCIAL_MEDIA.FACEBOOK} target="_blank" rel="noopener noreferrer">
                     <SiFacebook className="h-6 w-6 text-[#4b3d8f] hover:text-[#37a987]" />
                   </a>
                 </CardContent>
                 <CardContent>
-                  <p className="mb-2 text-[#4b3d8f]">DreamNest Inc.</p>
-                  <p className="mb-2 text-[#4b3d8f]">123 VR Street, Tech City, TC 12345</p>
-                  <p className="mb-2 text-[#4b3d8f]">Email: info@dreamnest.com</p>
-                  <p className="text-[#4b3d8f]">Phone: +1 (555) 123-4567</p>
+                  <p className="mb-2 text-[#4b3d8f]">{COMPANY_INFO.NAME}</p>
+                  <p className="mb-2 text-[#4b3d8f]">{COMPANY_INFO.ADDRESS}</p>
+                  <p className="mb-2 text-[#4b3d8f]">Email: {COMPANY_INFO.EMAIL}</p>
+                  <p className="text-[#4b3d8f]">Phone: {COMPANY_INFO.PHONE}</p>
                 </CardContent>
               </Card>
             </div>

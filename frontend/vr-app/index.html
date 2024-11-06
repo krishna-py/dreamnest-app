@@ -136,7 +136,7 @@
         <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="0 10 0"></a-entity>
 
         <!-- setup the camera rig -->
-        <a-entity id="cameraRig" movement-controls="controls: checkpoint" checkpoint-controls="mode: animate"
+        <a-entity id="cameraRig" movement-controls="controls: checkpoint, gamepad" checkpoint-controls="mode: animate"
             position="0 0 0" rotation="0 0 0">
             <a-entity id="head" camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
                 <a-entity cursor raycaster="objects:[checkpoint]" position="0 0 -1"
@@ -152,8 +152,8 @@
 
         <!-- setup the controller rig -->
         <a-entity id="controllerRig">
-            <a-entity id="leftC" laser-controls="hand: left" raycaster="far: 20"></a-entity>
-            <a-entity id="rightC" laser-controls="hand: right" raycaster="far: 20"></a-entity>
+            <a-entity id="leftC" laser-controls="hand: left" raycaster="far: 20; objects:[checkpoint]" ></a-entity>
+            <a-entity id="rightC" laser-controls="hand: right" raycaster="far: 20; objects:[checkpoint]"></a-entity>
         </a-entity>
 
     </a-scene>
