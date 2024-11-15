@@ -71,6 +71,8 @@
     <script src="src/shader/gradient.js"></script>
     <script src="src/components/spawn-in-circle.component.js"></script>
     <script src="src/components/raycaster-listen.js"></script>
+    <script src="src/external/starry-sky/dist/a-starry-sky.v1.1.0.js"></script>
+    <script src="src/external/starry-sky/dist/wasm/interpolation-engine.js"></script>
 
     <script>
         // Called by Networked-Aframe when connected to server (optional)
@@ -210,7 +212,7 @@
 
         AFRAME.registerComponent('slide-control', {
             init: function () {
-                this.slides = ["#slide1", "#slide2", "#slide3", "#slide4", "#slide5"];
+                this.slides = ["#slide1", "#slide2", "#slide3", "#slide4", "#slide5", "#slide6", "#slide7", "#slide8", "#slide9"];
                 this.currentSlide = 0;
                 this.el.addEventListener('bbuttondown', this.bButtonDown);
                 this.el.addEventListener('bbuttonup', this.bButtonUp);
@@ -235,19 +237,15 @@
                 });
             },
             aButtonDown: function (evt) {
+                this.currentSlide = Math.min(this.currentSlide + 1, this.slides.length - 1);
+
                 document.getElementById('hud').setAttribute('visible', true);
                 document.getElementById('hud-info').setAttribute('text', {
-                    value: "Next Slide"
+                    value: "Next Slide: " + this.slides[this.currentSlide]
                 });
             },
             aButtonUp: function (evt) {
-                // document.getElementById('hud').setAttribute('visible', false);
-
-                this.currentSlide = Math.min(this.currentSlide + 1, this.slides.length - 1);
-                document.getElementById('hud-info').setAttribute('text', {
-                    value: this.slides[this.currentSlide]
-                });
-
+                document.getElementById('hud').setAttribute('visible', false);
                 document.getElementById('slideShow').setAttribute('template', {
                     src: this.slides[this.currentSlide]
                 });
@@ -257,12 +255,11 @@
 </head>
 
 <body>
-    <a-scene xr-mode-ui="enterVRButton: #vrButton" stats
+    <a-scene physics shadow="type: pcfsoft" xr-mode-ui="enterVRButton: #vrButton" stats
         networked-scene="serverURL: http://localhost:8080/; app: dreamnest-app; room: local-test; debug: true; adapter: easyrtc; audio: true;"
         renderer="physicallyCorrectLights: true;">
         <a-assets>
             <a-entity template="src: src/assets.html; type: html"></a-entity>
-            
 
             <!-- Templates -->
             <!-- Camera Rig / Player -->
@@ -320,21 +317,47 @@
             <script id="slide5" type="text/html">
                 <a-entity template="src: src/templates/slide-5.template; type: html"></a-entity>
             </script>
+            <script id="slide6" type="text/html">
+                <a-entity template="src: src/templates/project-amenities.template; type: html"></a-entity>
+            </script>
+            <script id="slide7" type="text/html">
+                <a-entity template="src: src/templates/unitA.template; type: html"></a-entity>
+            </script>
+            <script id="slide8" type="text/html">
+                <a-entity template="src: src/templates/unitB.template; type: html"></a-entity>
+            </script>
+            <script id="slide9" type="text/html">
+                <a-entity template="src: src/templates/unitC.template; type: html"></a-entity>
+            </script>
 
         </a-assets>
 
         <a-entity template="src: #ground"></a-entity>
         <!-- <a-entity id="currentScene" template="src: #lobby"></a-entity> -->
-        <a-entity id="slideShow" template="src: #slide1" position="0 1.8 0"></a-entity>
+        <a-entity id="slideShow" template="src: #slide9" position="0 1.8 0"></a-entity>
         <!-- template-looper="interval: 10; list: #slide2, #slide3, #slide4, #slide5, #slide1">
         </a-entity> -->
 
         <!-- setup the general scene i.e. sky, lights, etc. -->
-        <a-sky color="#ECECEC"></a-sky>
+        <!-- Sky Setup -->
+        <a-starry-sky web-worker-src="src/external/starry-sky/dist/wasm/starry-sky-web-worker.js">
+            <sky-location>
+                <sky-latitude>17.366</sky-latitude>
+                <sky-longitude>78.476</sky-longitude>
+            </sky-location>
+            <sky-time>
+                <sky-date>2024-11-16 10:30:00</sky-date>
+                <sky-utc-offset>+5.5</sky-utc-offset>
+                <sky-speed>8</sky-speed>
+            </sky-time>
+            <sky-lighting>
+                <sky-atmospheric-perspective-type>advanced</sky-atmospheric-perspective-type>
+            </sky-lighting>
+        </a-starry-sky>
         <a-entity light="type: ambient; color: #BBB"></a-entity>
         <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="0 10 0"></a-entity>
 
-        <a-entity id="cameraRig" spawn-in-circle="radius:2" networked="template:#rig-template;" 
+        <a-entity id="cameraRig" spawn-in-circle="radius:2" networked="template:#rig-template;"
             movement-controls="controls: checkpoint, gamepad" checkpoint-controls="mode: teleport">
 
             <!-- setup the controller rig -->
