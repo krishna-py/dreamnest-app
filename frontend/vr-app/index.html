@@ -207,6 +207,52 @@
                 this.el.object3D.rotation.y += (this.data.direction === "left" ? 72 : -72);
             }
         });
+
+        AFRAME.registerComponent('slide-control', {
+            init: function () {
+                this.slides = ["#slide1", "#slide2", "#slide3", "#slide4", "#slide5"];
+                this.currentSlide = 0;
+                this.el.addEventListener('bbuttondown', this.bButtonDown);
+                this.el.addEventListener('bbuttonup', this.bButtonUp);
+                this.el.addEventListener('abuttondown', this.aButtonDown);
+                this.el.addEventListener('abuttonup', this.aButtonUp);
+            },
+            bButtonDown: function (evt) {
+                document.getElementById('hud').setAttribute('visible', true);
+                document.getElementById('hud-info').setAttribute('text', {
+                    value: "Previous Slide"
+                });
+            },
+            bButtonUp: function (evt) {
+                document.getElementById('hud').setAttribute('visible', false);
+                document.getElementById('hud-info').setAttribute('text', {
+                    value: ""
+                });
+
+                this.currentSlide = Math.max(this.currentSlide - 1, 0);
+                document.getElementById('slideShow').setAttribute('template', {
+                    src: this.slides[this.currentSlide]
+                });
+            },
+            aButtonDown: function (evt) {
+                document.getElementById('hud').setAttribute('visible', true);
+                document.getElementById('hud-info').setAttribute('text', {
+                    value: "Next Slide"
+                });
+            },
+            aButtonUp: function (evt) {
+                // document.getElementById('hud').setAttribute('visible', false);
+
+                this.currentSlide = Math.min(this.currentSlide + 1, this.slides.length - 1);
+                document.getElementById('hud-info').setAttribute('text', {
+                    value: this.slides[this.currentSlide]
+                });
+
+                document.getElementById('slideShow').setAttribute('template', {
+                    src: this.slides[this.currentSlide]
+                });
+            }
+        });
     </script>
 </head>
 
@@ -216,6 +262,7 @@
         renderer="physicallyCorrectLights: true;">
         <a-assets>
             <a-entity template="src: src/assets.html; type: html"></a-entity>
+            
 
             <!-- Templates -->
             <!-- Camera Rig / Player -->
@@ -257,7 +304,7 @@
                     {% endfor %}
                 {% endfor %}
             </script>
-        
+
             <script id="slide1" type="text/html">
                 <a-entity template="src: src/templates/slide-1.template; type: html"></a-entity>
             </script>
@@ -278,8 +325,8 @@
 
         <a-entity template="src: #ground"></a-entity>
         <!-- <a-entity id="currentScene" template="src: #lobby"></a-entity> -->
-        <a-entity id="slideShow" template="src: #slide2" position="0 1.8 0"></a-entity>
-            <!-- template-looper="interval: 10; list: #slide2, #slide3, #slide4, #slide5, #slide1">
+        <a-entity id="slideShow" template="src: #slide1" position="0 1.8 0"></a-entity>
+        <!-- template-looper="interval: 10; list: #slide2, #slide3, #slide4, #slide5, #slide1">
         </a-entity> -->
 
         <!-- setup the general scene i.e. sky, lights, etc. -->
@@ -287,7 +334,20 @@
         <a-entity light="type: ambient; color: #BBB"></a-entity>
         <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="0 10 0"></a-entity>
 
-        <a-entity id="cameraRig" spawn-in-circle="radius:2" networked="template:#rig-template;">
+        <a-entity id="cameraRig" spawn-in-circle="radius:2" networked="template:#rig-template;" 
+            movement-controls="controls: checkpoint, gamepad" checkpoint-controls="mode: teleport">
+
+            <!-- setup the controller rig -->
+            <a-entity id="controllerRig">
+                <a-entity id="leftC" laser-controls="hand: left"
+                    raycaster="far: 20; lineColor: red; lineOpacity: 0.5; objects: .raycastable"></a-entity>
+                <a-entity id="rightC" laser-controls="hand: right"
+                    raycaster="far: 20; lineColor: red; lineOpacity: 0.5; objects: .raycastable"></a-entity>
+                <a-entity oculus-touch-controls="hand: left" slide-control></a-entity>
+                <a-entity oculus-touch-controls="hand: right" slide-control></a-entity>
+            </a-entity>
+
+            <!-- networked player & camera -->
             <a-entity id="player" camera position="0 1.6 0" look-controls="enabled: false;pointerLockEnabled: true"
                 orbit-controls="autoRotate: false; initialPosition: 0 1.7 8; rotateSpeed: 0.5; minDistance: 0.5; maxDistance: 10"
                 networked="template:#avatar-template;">
@@ -298,31 +358,10 @@
 
                 <a-entity id="hud" geometry="primitive: plane; height: .1; width: 1" position="0 -0.5 -1"
                     material="color: lightgrey; opacity: 0.5" visible="false">
-                    <a-entity text="value: test; color: black; align: center; width: 1; opacity: 1"></a-entity>
+                    <a-entity id="hud-info"
+                        text="value: -; color: black; align: center; width: 1; opacity: 1"></a-entity>
                 </a-entity>
             </a-entity>
-        </a-entity>
-
-
-        <!-- <a-entity id="cameraRig" spawn-in-circle="radius:2" networked="template:#rig-template;">
-            <a-entity id="player" camera position="0 1.6 0" look-controls networked="template:#avatar-template;">
-                <a-entity cursor
-                    raycaster="objects: .clickable; far: 20; showLine: true; lineColor: lightgreen; lineWidth: 0.5"
-                    position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
-                    material="color: lightgreen; shader: flat;"></a-entity>
-
-                <a-entity id="hud" geometry="primitive: plane; height: .1; width: 1" position="0 -0.5 -1"
-                    material="color: lightgrey; opacity: 0.5" visible="false">
-                    <a-entity text="value: test; color: black; align: center; width: 1; opacity: 1"></a-entity>
-                </a-entity>
-            </a-entity>
-        </a-entity> -->
-
-        <!-- setup the controller rig -->
-        <a-entity id="controllerRig">
-            <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
-            <a-entity id="leftC" laser-controls="hand: left" raycaster="far: 20; lineColor: red; lineOpacity: 0.5; objects: .raycastable"></a-entity>
-            <a-entity id="rightC" laser-controls="hand: right" raycaster="far: 20; lineColor: red; lineOpacity: 0.5; objects: .raycastable"></a-entity>
         </a-entity>
 
     </a-scene>

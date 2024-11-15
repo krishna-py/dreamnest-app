@@ -38,10 +38,10 @@
 <img id="osm-svg" src="public/assets/listing/map/map_1478x814.svg" />
 <a-mixin id="map_svg" material="src: #osm-svg;"></a-mixin>
 <a-asset-item id="property" src="public/assets/listing/others/modern_city_block.glb"></a-asset-item>
-<img id="master-plan" src="public/assets/listing/infographics/spectra_master_plan.png" />
-<img id="unit-plan" src="public/assets/listing/infographics/1980_3BHK_West_Type-1.webp" />
-<img id="project-overview" src="public/assets/listing/infographics/project-overview.png" />
-<a-asset-item id="project-villa" src="public/assets/listing/others/modern_villa1.glb"></a-asset-item>
+<!-- <img id="master-plan" src="public/assets/listing/infographics/spectra_master_plan.png" /> -->
+<!-- <img id="unit-plan" src="public/assets/listing/infographics/1980_3BHK_West_Type-1.webp" /> -->
+<!-- <img id="project-overview" src="public/assets/listing/infographics/project-overview.png" /> -->
+<!-- <a-asset-item id="project-villa" src="public/assets/listing/others/modern_villa1.glb"></a-asset-item> -->
 
 <!-- Mixins -->
 
@@ -63,8 +63,11 @@
                 ambientOcclusionMap: #wall_brick_ao; ambientOcclusionTextureRepeat: 25 1.5; 
                 displacementMap: #wall_brick_disp; displacementTextureRepeat: 25 1.5; 
                 normalMap: #wall_brick_normal; normalTextureRepeat: 25 1.5;"></a-mixin>
-                
+
 <a-mixin id="gd_square_tiles" material="src: #gd_square_tiles_diff; repeat: 30 30; 
                 ambientOcclusionMap: #gd_square_tiles_ao; ambientOcclusionTextureRepeat: 30 30; 
                 displacementMap: #gd_square_tiles_disp; displacementTextureRepeat: 30 30; 
                 normalMap: #gd_square_tiles_normal; normalTextureRepeat: 30 30;"></a-mixin>
+
+<a-mixin id="checkpoint"></a-mixin>
+<a-mixin id="checkpoint-hovered" color="#6CEEB5"></a-mixin>

@@ -1,5 +1,9 @@
 <a-entity id="stall-1" info-panel polar-position-xz="radius: 6; theta: 0">
-    <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75" position="0 2 0" random-color>
+    
+    
+    
+    <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75"
+        position="0 1.6 0" random-color>
         <a-entity id="info-title" position="-1.6 .85 0.1"
             text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: DreamNest">
         </a-entity>
@@ -9,15 +13,22 @@
             geometry="primitive: plane; width: 1.5; height: 1"
             material="color: #333333; shader: flat; transparent: false" class="raycastable">
             <a-entity id="panel-title" position="-0.68 .2 0"
-                text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: DreamNest"></a-entity>
-            <a-entity id="panel-desc" position="-0.68 .1 0"
-                text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: ['The Great Upgrade', 'SPACIOUS', '3, 3.5 & 4 BHKs', 'TG RERA No: P02200008770']"></a-entity>
+                text="shader: msdf; anchor: left; width: 3; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: DreamNest"></a-entity>
+            <a-entity id="panel-desc" position="-0.68 .1 0" text="baseline: top; shader: msdf; anchor: left; warpCount: 10; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: The Great Upgrade
+SPACIOUS
+3, 3.5 & 4 BHKs
+TG RERA No: P02200008770"></a-entity>
         </a-entity>
     </a-box>
     
-    <a-entity gltf-model="public/assets/listing/others/modern_city_block.glb" position="1.65 -1.2 1.5" rotation="0 -43 0"
-        scale="0.0001 0.0001 0.0001" levitate></a-entity>
+    <a-entity gltf-model="public/assets/listing/others/modern_city_block.glb" position="1.65 -1.2 1.5" rotation="0 -43 0" scale="0.0001 0.0001 0.0001"
+        levitate></a-entity>
+    <a-cylinder class="raycastable" checkpoint radius="0.3" height="0.1" position="0 -1.8 4.0" color="#39BB82">
+        <a-text value="DreamNest" width="2" position="-0.15 0.05 0" rotation="-90 0 0" color="black"></a-text>
+    </a-cylinder>
     
+    <a-entity></a-entity>
 </a-entity>
 
 
@@ -28,8 +39,7 @@
 
 <a-entity id="stall-ch--2" info-panel polar-position-xz="radius: 6; theta: -90;">
     <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75" random-color>
-        <a-entity id="info-title" position="-1.6 .85 0.1"
-            text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+        <a-entity id="info-title" position="-1.6 .85 0.1" text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
             value: Specifications">
         </a-entity>
         <a-image id="info-png-0" position="0 0 0.07" color="#FFF" width="3.6" height="2.4"
@@ -38,24 +48,22 @@
         <a-entity id="infoPanel" position="0 -1.3 1.5" visible="false"
             geometry="primitive: plane; width: 1.5; height: 1"
             material="color: #333333; shader: flat; transparent: false" class="raycastable">
-            <a-entity id="panel-title" position="-0.68 .2 0"
-                text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+            <a-entity id="panel-title" position="-0.68 .2 0" text="shader: msdf; anchor: left; width: 3; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
                 value: Specifications"></a-entity>
-            <a-entity id="panel-desc" position="-0.68 .1 0"
-                text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
-                value: ['Building Materials and Structure']"></a-entity>
+            <a-entity id="panel-desc" position="-0.68 .1 0" text="baseline: top; shader: msdf; anchor: left; warpCount: 10; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: Building Materials and Structure"></a-entity>
         </a-entity>
     </a-box>
     
-    <a-entity gltf-model="public/assets/listing/others/modern_city_block.glb" position="1.65 -1.2 1.5" rotation="0 -43 0"
-        scale="" levitate></a-entity>
+    <a-cylinder class="raycastable"checkpoint radius="0.3" height="0.1" position="0 -1.8 2.5" color="#39BB82">
+        <a-text value="Specifications" width="2" position="-0.15 0.05 0" rotation="-90 0 0" color="black"></a-text>
+    </a-cylinder>
     
 </a-entity>
 
 <a-entity id="stall-ch--1" info-panel polar-position-xz="radius: 6; theta: -45;">
     <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75" random-color>
-        <a-entity id="info-title" position="-1.6 .85 0.1"
-            text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+        <a-entity id="info-title" position="-1.6 .85 0.1" text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
             value: Amenities">
         </a-entity>
         <a-image id="info-png-1" position="0 0 0.07" color="#FFF" width="3.6" height="2.4"
@@ -64,17 +72,16 @@
         <a-entity id="infoPanel" position="0 -1.3 1.5" visible="false"
             geometry="primitive: plane; width: 1.5; height: 1"
             material="color: #333333; shader: flat; transparent: false" class="raycastable">
-            <a-entity id="panel-title" position="-0.68 .2 0"
-                text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+            <a-entity id="panel-title" position="-0.68 .2 0" text="shader: msdf; anchor: left; width: 3; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
                 value: Amenities"></a-entity>
-            <a-entity id="panel-desc" position="-0.68 .1 0"
-                text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
-                value: ['Amenities for the residents']"></a-entity>
+            <a-entity id="panel-desc" position="-0.68 .1 0" text="baseline: top; shader: msdf; anchor: left; warpCount: 10; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: Amenities for the residents"></a-entity>
         </a-entity>
     </a-box>
     
-    <a-entity gltf-model="public/assets/listing/others/modern_city_block.glb" position="1.65 -1.2 1.5" rotation="0 -43 0"
-        scale="" levitate></a-entity>
+    <a-cylinder class="raycastable"checkpoint radius="0.3" height="0.1" position="0 -1.8 2.5" color="#39BB82">
+        <a-text value="Amenities" width="2" position="-0.15 0.05 0" rotation="-90 0 0" color="black"></a-text>
+    </a-cylinder>
     
 </a-entity>
 
@@ -83,8 +90,7 @@
 
 <a-entity id="stall-ch-1" info-panel polar-position-xz="radius: 6; theta: 45;">
     <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75" random-color>
-        <a-entity id="info-title" position="-1.6 .85 0.1"
-            text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+        <a-entity id="info-title" position="-1.6 .85 0.1" text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
             value: Location">
         </a-entity>
         <a-image id="info-png-2" position="0 0 0.07" color="#FFF" width="3.6" height="2.4"
@@ -93,24 +99,22 @@
         <a-entity id="infoPanel" position="0 -1.3 1.5" visible="false"
             geometry="primitive: plane; width: 1.5; height: 1"
             material="color: #333333; shader: flat; transparent: false" class="raycastable">
-            <a-entity id="panel-title" position="-0.68 .2 0"
-                text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+            <a-entity id="panel-title" position="-0.68 .2 0" text="shader: msdf; anchor: left; width: 3; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
                 value: Location"></a-entity>
-            <a-entity id="panel-desc" position="-0.68 .1 0"
-                text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
-                value: ['Kukatpally Y-Junction']"></a-entity>
+            <a-entity id="panel-desc" position="-0.68 .1 0" text="baseline: top; shader: msdf; anchor: left; warpCount: 10; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: Kukatpally Y-Junction"></a-entity>
         </a-entity>
     </a-box>
     
-    <a-entity gltf-model="public/assets/listing/others/modern_city_block.glb" position="1.65 -1.2 1.5" rotation="0 -43 0"
-        scale="" levitate></a-entity>
+    <a-cylinder class="raycastable" checkpoint radius="0.3" height="0.1" position="0 -1.8 2.5" color="#39BB82">
+        <a-text value="Location" width="2" position="-0.15 0.05 0" rotation="-90 0 0" color="black"></a-text>
+    </a-cylinder>
     
 </a-entity>
 
 <a-entity id="stall-ch-2" info-panel polar-position-xz="radius: 6; theta: 90;">
     <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75" random-color>
-        <a-entity id="info-title" position="-1.6 .85 0.1"
-            text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+        <a-entity id="info-title" position="-1.6 .85 0.1" text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
             value: Plans">
         </a-entity>
         <a-image id="info-png-3" position="0 0 0.07" color="#FFF" width="3.6" height="2.4"
@@ -119,17 +123,17 @@
         <a-entity id="infoPanel" position="0 -1.3 1.5" visible="false"
             geometry="primitive: plane; width: 1.5; height: 1"
             material="color: #333333; shader: flat; transparent: false" class="raycastable">
-            <a-entity id="panel-title" position="-0.68 .2 0"
-                text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+            <a-entity id="panel-title" position="-0.68 .2 0" text="shader: msdf; anchor: left; width: 3; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
                 value: Plans"></a-entity>
-            <a-entity id="panel-desc" position="-0.68 .1 0"
-                text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
-                value: ['3, 3.5 & 4 BHKs', 'Delivery by Mar 2025']"></a-entity>
+            <a-entity id="panel-desc" position="-0.68 .1 0" text="baseline: top; shader: msdf; anchor: left; warpCount: 10; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: 3, 3.5 & 4 BHKs
+Delivery by Mar 2025"></a-entity>
         </a-entity>
     </a-box>
     
-    <a-entity gltf-model="public/assets/listing/others/modern_city_block.glb" position="1.65 -1.2 1.5" rotation="0 -43 0"
-        scale="" levitate></a-entity>
+    <a-cylinder class="raycastable" checkpoint radius="0.3" height="0.1" position="0 -1.8 2.5" color="#39BB82">
+        <a-text value="Plans" width="2" position="-0.15 0.05 0" rotation="-90 0 0" color="black"></a-text>
+    </a-cylinder>
     
 </a-entity>
 
