@@ -71,8 +71,6 @@
     <script src="src/shader/gradient.js"></script>
     <script src="src/components/spawn-in-circle.component.js"></script>
     <script src="src/components/raycaster-listen.js"></script>
-    <script src="src/external/starry-sky/dist/a-starry-sky.v1.1.0.js"></script>
-    <script src="src/external/starry-sky/dist/wasm/interpolation-engine.js"></script>
 
     <script>
         // Called by Networked-Aframe when connected to server (optional)
@@ -241,7 +239,7 @@
 
                 document.getElementById('hud').setAttribute('visible', true);
                 document.getElementById('hud-info').setAttribute('text', {
-                    value: "Next Slide: " + this.slides[this.currentSlide]
+                    value: this.slides[this.currentSlide - 1] +" --> " + this.slides[this.currentSlide]
                 });
             },
             aButtonUp: function (evt) {
@@ -334,26 +332,13 @@
 
         <a-entity template="src: #ground"></a-entity>
         <!-- <a-entity id="currentScene" template="src: #lobby"></a-entity> -->
-        <a-entity id="slideShow" template="src: #slide9" position="0 1.8 0"></a-entity>
+        <a-entity id="slideShow" template="src: #slide1" position="0 1.8 0"></a-entity>
         <!-- template-looper="interval: 10; list: #slide2, #slide3, #slide4, #slide5, #slide1">
         </a-entity> -->
 
         <!-- setup the general scene i.e. sky, lights, etc. -->
         <!-- Sky Setup -->
-        <a-starry-sky web-worker-src="src/external/starry-sky/dist/wasm/starry-sky-web-worker.js">
-            <sky-location>
-                <sky-latitude>17.366</sky-latitude>
-                <sky-longitude>78.476</sky-longitude>
-            </sky-location>
-            <sky-time>
-                <sky-date>2024-11-16 10:30:00</sky-date>
-                <sky-utc-offset>+5.5</sky-utc-offset>
-                <sky-speed>8</sky-speed>
-            </sky-time>
-            <sky-lighting>
-                <sky-atmospheric-perspective-type>advanced</sky-atmospheric-perspective-type>
-            </sky-lighting>
-        </a-starry-sky>
+        <a-sky color="#ECECEC"></a-sky>
         <a-entity light="type: ambient; color: #BBB"></a-entity>
         <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="0 10 0"></a-entity>
 
