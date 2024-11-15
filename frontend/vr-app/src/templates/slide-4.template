@@ -1,0 +1,189 @@
+<a-entity id="stall-4" info-panel polar-position-xz="radius: 6; theta: 0">
+    <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75" position="0 2 0" random-color>
+        <a-entity id="info-title" position="-1.6 .85 0.1"
+            text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Specifications">
+        </a-entity>
+        <a-image id="info-png" position="0 0 0.07" color="#FFF" width="3.6" height="2.4" src="public/assets/listing/infographics2/specifications/1-Structure-updated.webp">
+        </a-image>
+        <a-entity id="infoPanel" position="0 -1.3 1.5" visible="false"
+            geometry="primitive: plane; width: 1.5; height: 1"
+            material="color: #333333; shader: flat; transparent: false" class="raycastable">
+            <a-entity id="panel-title" position="-0.68 .2 0"
+                text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Specifications"></a-entity>
+            <a-entity id="panel-desc" position="-0.68 .1 0"
+                text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: ['Structure & Finishing']"></a-entity>
+        </a-entity>
+    </a-box>
+    
+</a-entity>
+
+
+
+
+<!-- The left side stalls -->
+
+
+<a-entity id="stall-ch--3" info-panel polar-position-xz="radius: 6; theta: -135;">
+    <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75" random-color>
+        <a-entity id="info-title" position="-1.6 .85 0.1"
+            text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+            value: Structure">
+        </a-entity>
+        <a-image id="info-png-0" position="0 0 0.07" color="#FFF" width="3.6" height="2.4"
+            src="public/assets/listing/infographics2/specifications/1-Structure-updated.webp">
+        </a-image>
+        <a-entity id="infoPanel" position="0 -1.3 1.5" visible="false"
+            geometry="primitive: plane; width: 1.5; height: 1"
+            material="color: #333333; shader: flat; transparent: false" class="raycastable">
+            <a-entity id="panel-title" position="-0.68 .2 0"
+                text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: Structure"></a-entity>
+            <a-entity id="panel-desc" position="-0.68 .1 0"
+                text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: ['RCC-framed structure, resistant to wind and earthquake (Zone -2).']"></a-entity>
+        </a-entity>
+    </a-box>
+    
+</a-entity>
+
+<a-entity id="stall-ch--2" info-panel polar-position-xz="radius: 6; theta: -90;">
+    <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75" random-color>
+        <a-entity id="info-title" position="-1.6 .85 0.1"
+            text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+            value: Flooring">
+        </a-entity>
+        <a-image id="info-png-1" position="0 0 0.07" color="#FFF" width="3.6" height="2.4"
+            src="public/assets/listing/infographics2/specifications/2-Flooring.webp">
+        </a-image>
+        <a-entity id="infoPanel" position="0 -1.3 1.5" visible="false"
+            geometry="primitive: plane; width: 1.5; height: 1"
+            material="color: #333333; shader: flat; transparent: false" class="raycastable">
+            <a-entity id="panel-title" position="-0.68 .2 0"
+                text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: Flooring"></a-entity>
+            <a-entity id="panel-desc" position="-0.68 .1 0"
+                text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: ['Common Spaces (within flat) - Living, Dining , Drawing -Glazed Vitrified Tiles-Matt Finish of size 800 x 1600 mm with Spacer joint.', 'Private Spaces (within Flat) : Glazed Vitrified Tiles-Matt Finish of Size 600 x 1200 mm with Spacer Joint.', 'Bathroom_MBR : 1200 x 600 mm Cladding ; 1200 x 600 mm Flooring.', 'Bathroom_Others : 600 x 600 mm Cladding ; 600 x 600 mm Flooring.', 'Utility : 600 x 600 mm Cladding ; 600 x 600 mm Flooring.']"></a-entity>
+        </a-entity>
+    </a-box>
+    
+</a-entity>
+
+<a-entity id="stall-ch--1" info-panel polar-position-xz="radius: 6; theta: -45;">
+    <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75" random-color>
+        <a-entity id="info-title" position="-1.6 .85 0.1"
+            text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+            value: Designer Doors">
+        </a-entity>
+        <a-image id="info-png-2" position="0 0 0.07" color="#FFF" width="3.6" height="2.4"
+            src="public/assets/listing/infographics2/specifications/landing-specification-3-updated.webp">
+        </a-image>
+        <a-entity id="infoPanel" position="0 -1.3 1.5" visible="false"
+            geometry="primitive: plane; width: 1.5; height: 1"
+            material="color: #333333; shader: flat; transparent: false" class="raycastable">
+            <a-entity id="panel-title" position="-0.68 .2 0"
+                text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: Designer Doors"></a-entity>
+            <a-entity id="panel-desc" position="-0.68 .1 0"
+                text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: ['Main Door Frame : Teak wood frame finished with melamine spray polish.', 'Main Door Shutters : Veneer flush shutters with designer hardware.', 'Bedroom Doors Frame : Hard wood factory-made wooden frames.', 'Bedroom Doors Shutters : Two sides laminated flush shutters with designer hardware.', 'Bathroom Doors Frame : Granite frame.', 'Bathroom Doors Shutters : Two sides laminated flush shutters with designer hardware.']"></a-entity>
+        </a-entity>
+    </a-box>
+    
+</a-entity>
+
+<!-- the right side stalls -->
+
+
+<a-entity id="stall-ch-1" info-panel polar-position-xz="radius: 6; theta: 45;">
+    <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75" random-color>
+        <a-entity id="info-title" position="-1.6 .85 0.1"
+            text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+            value: Glass Handrailing">
+        </a-entity>
+        <a-image id="info-png-3" position="0 0 0.07" color="#FFF" width="3.6" height="2.4"
+            src="public/assets/listing/infographics2/specifications/landing-specification-20.webp">
+        </a-image>
+        <a-entity id="infoPanel" position="0 -1.3 1.5" visible="false"
+            geometry="primitive: plane; width: 1.5; height: 1"
+            material="color: #333333; shader: flat; transparent: false" class="raycastable">
+            <a-entity id="panel-title" position="-0.68 .2 0"
+                text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: Glass Handrailing"></a-entity>
+            <a-entity id="panel-desc" position="-0.68 .1 0"
+                text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: ['Aesthetically designed laminated Glass railing systems with high-quality handrails, cap rails and railing base.']"></a-entity>
+        </a-entity>
+    </a-box>
+    
+</a-entity>
+
+<a-entity id="stall-ch-2" info-panel polar-position-xz="radius: 6; theta: 90;">
+    <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75" random-color>
+        <a-entity id="info-title" position="-1.6 .85 0.1"
+            text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+            value: Power Backup">
+        </a-entity>
+        <a-image id="info-png-4" position="0 0 0.07" color="#FFF" width="3.6" height="2.4"
+            src="public/assets/listing/infographics2/specifications/13-Power-backup.webp">
+        </a-image>
+        <a-entity id="infoPanel" position="0 -1.3 1.5" visible="false"
+            geometry="primitive: plane; width: 1.5; height: 1"
+            material="color: #333333; shader: flat; transparent: false" class="raycastable">
+            <a-entity id="panel-title" position="-0.68 .2 0"
+                text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: Power Backup"></a-entity>
+            <a-entity id="panel-desc" position="-0.68 .1 0"
+                text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: ['100% power backup.', 'DG set with acoustic enclosure and AMFs.']"></a-entity>
+        </a-entity>
+    </a-box>
+    
+</a-entity>
+
+<a-entity id="stall-ch-3" info-panel polar-position-xz="radius: 6; theta: 135;">
+    <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75" random-color>
+        <a-entity id="info-title" position="-1.6 .85 0.1"
+            text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+            value: Parking">
+        </a-entity>
+        <a-image id="info-png-5" position="0 0 0.07" color="#FFF" width="3.6" height="2.4"
+            src="public/assets/listing/infographics2/specifications/7-Parking.webp">
+        </a-image>
+        <a-entity id="infoPanel" position="0 -1.3 1.5" visible="false"
+            geometry="primitive: plane; width: 1.5; height: 1"
+            material="color: #333333; shader: flat; transparent: false" class="raycastable">
+            <a-entity id="panel-title" position="-0.68 .2 0"
+                text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: Parking"></a-entity>
+            <a-entity id="panel-desc" position="-0.68 .1 0"
+                text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: ['Designated markings for each flat and visitor parking Signages at relevant points.', 'Car wash area will be provided in the basement.', 'EV Charging point cluster shall be given.']"></a-entity>
+        </a-entity>
+    </a-box>
+    
+</a-entity>
+
+<a-entity id="stall-ch-4" info-panel polar-position-xz="radius: 6; theta: 180;">
+    <a-box id="bg-box" side="double" width="3.6" height="3" depth="0.1" color="#333333" opacity=".75" random-color>
+        <a-entity id="info-title" position="-1.6 .85 0.1"
+            text="shader: msdf; anchor: left; width: 4; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+            value: Security">
+        </a-entity>
+        <a-image id="info-png-6" position="0 0 0.07" color="#FFF" width="3.6" height="2.4"
+            src="public/assets/listing/infographics2/specifications/14-Security.webp">
+        </a-image>
+        <a-entity id="infoPanel" position="0 -1.3 1.5" visible="false"
+            geometry="primitive: plane; width: 1.5; height: 1"
+            material="color: #333333; shader: flat; transparent: false" class="raycastable">
+            <a-entity id="panel-title" position="-0.68 .2 0"
+                text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: Security"></a-entity>
+            <a-entity id="panel-desc" position="-0.68 .1 0"
+                text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; 
+                value: ['Sophisticated round-the-clock security / Surveillance System.', 'Panic button and intercom is provided in the lifts connected to the security room.', 'Solar power fencing all-round the boundary.', 'Surveillance cameras at the deisgnated areas as per design.', 'RFID based Boom Barrier system which allows only designated residents into the community.']"></a-entity>
+        </a-entity>
+    </a-box>
+    
+</a-entity>
+

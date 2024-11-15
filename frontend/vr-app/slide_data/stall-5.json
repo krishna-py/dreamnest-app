@@ -1,0 +1,21 @@
+{
+    "title": "Location",
+    "infographic": "public/assets/listing/infographics2/location/Hero.webp",
+    "text_content": [
+        "Near Balanagar metro station"
+    ],
+    "children": [
+        "nearby"
+    ],
+    "nearby": {
+        "title": "Nearby",
+        "infographic": "public/assets/listing/infographics2/location/location-near-by-map.webp",
+        "text-content": [
+            "Near Balanagar metro station",
+            "Lakeshore Mall coming up next to Landmark",
+            "5+ international schools",
+            "8+ Tech parks / IT SEZ",
+            "10+ Entertainment Zones"
+        ]
+    }
+}

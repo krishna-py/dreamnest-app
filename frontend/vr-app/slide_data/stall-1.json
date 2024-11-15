@@ -1,0 +1,47 @@
+{
+    "title": "DreamNest",
+    "infographic": "public/assets/listing/infographics2/Hero.webp",
+    "model": "public/assets/listing/others/modern_city_block.glb",
+    "model_scale": "0.0001 0.0001 0.0001",
+    "text_content": [
+        "The Great Upgrade",
+        "SPACIOUS",
+        "3, 3.5 & 4 BHKs",
+        "TG RERA No: P02200008770"
+    ],
+    "children": [
+        "specifications",
+        "amenities",
+        "location",
+        "plans"
+    ],
+    "specifications": {
+        "title": "Specifications",
+        "infographic": "public/assets/listing/infographics2/specifications/1-Structure-updated.webp",
+        "text_content": [
+            "Building Materials and Structure"
+        ]
+    },
+    "amenities": {
+        "title": "Amenities",
+        "infographic": "public/assets/listing/infographics2/amenities/Hero.webp",
+        "text_content": [
+            "Amenities for the residents"
+        ]
+    },
+    "location": {
+        "title": "Location",
+        "infographic": "public/assets/listing/infographics2/location/Hero.webp",
+        "text_content": [
+            "Kukatpally Y-Junction"
+        ]
+    },
+    "plans": {
+        "title": "Plans",
+        "infographic": "public/assets/listing/infographics2/plans/Hero.webp",
+        "text_content": [
+            "3, 3.5 & 4 BHKs",
+            "Delivery by Mar 2025"
+        ]
+    }
+}

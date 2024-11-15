@@ -1,0 +1,62 @@
+{
+    "title": "Plans",
+    "infographic": "public/assets/listing/infographics2/plans/Hero.webp",
+    "text-content": [
+        "3, 3.5 & 4 BHKs",
+        "Delivery by Mar 2025"
+    ],
+    "children": [
+        "master",
+        "tower-A",
+        "unitA",
+        "unitB",
+        "unitC"
+    ],
+    "master": {
+        "title": "Master",
+        "infographic": "public/assets/listing/infographics2/plans/Hero.webp",
+        "text_content": [
+            "4 towers planned"
+        ]
+    },
+    "tower-A": {
+        "title": "Tower A",
+        "infographic": "public/assets/listing/infographics2/plans/TowerA.webp",
+        "text_content": [
+            "6 units per floor",
+            "No common walls"
+        ]
+    },
+    "unitA": {
+        "title": "Unit A",
+        "infographic": "public/assets/listing/infographics2/plans/1975-East-A.webp",
+        "text_content": [
+            "East Facing",
+            "1975 Sq Ft",
+            "Studio Apartment"
+        ],
+        "model": "public/assets/listing/others/unit_b.glb",
+        "model_scale": "0.001 0.001 0.001"
+    },
+    "unitB": {
+        "title": "Unit B",
+        "infographic": "public/assets/listing/infographics2/plans/1805-West-B.webp",
+        "text_content": [
+            "West Facing",
+            "Duplex",
+            "1805 Sq Ft"
+        ],
+        "model": "public/assets/listing/others/unit_b.glb",
+        "model_scale": "0.001 0.001 0.001"
+    },
+    "unitC": {
+        "title": "Unit C",
+        "infographic": "public/assets/listing/infographics2/plans/2065-West-C.webp",
+        "text_content": [
+            "West Facing",
+            "2065 Sq Ft"
+        ],
+        "model": "public/assets/listing/others/unit_c.glb",
+        "model_scale": "0.001 0.001 0.001"
+    }
+}

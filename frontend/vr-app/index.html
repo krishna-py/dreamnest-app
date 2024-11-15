@@ -111,6 +111,102 @@
             const components = NAF.schemas.getComponentsOriginal(template);
             return components;
         };
+
+
+        /* global AFRAME */
+        AFRAME.registerComponent('info-panel', {
+            init: function () {
+                if (!this.el) return;
+
+                this.infoPanel = this.el.querySelector('#infoPanel');
+                this.onMouseEnter = this.onMouseEnter.bind(this);
+                this.onMouseLeave = this.onMouseLeave.bind(this);
+                this.el.addEventListener('mouseenter', this.onMouseEnter);
+                this.el.addEventListener('mouseleave', this.onMouseLeave);
+            },
+
+            onMouseEnter: function (evt) {
+                this.infoPanel.setAttribute('visible', true);
+            },
+
+            onMouseLeave: function (evt) {
+                this.infoPanel.setAttribute('visible', false);
+            },
+        });
+
+        AFRAME.registerComponent('polar-position-xz', {
+            schema: {
+                radius: { default: 10 },
+                theta: { default: 0 },
+                pos_y: { default: 0 }
+            },
+            update: function () {
+                var data = this.data;
+                var r = data.radius;
+                var t = data.theta;
+                var y = data.pos_y;
+                this.el.setAttribute('position', {
+                    x: -Math.sin(t * Math.PI / 180) * r,
+                    y: y,
+                    z: -Math.cos(t * Math.PI / 180) * r
+                });
+                this.el.setAttribute('rotation', {
+                    x: 0,
+                    y: t,
+                    z: 0
+                });
+
+                console.log(this.el.getAttribute("id"), this.el.getAttribute('position'), this.el.getAttribute('rotation'));
+            }
+        });
+
+        AFRAME.registerComponent('fetch-data', {
+            schema: {
+                idx: { default: 0 },
+            },
+            init: function () {
+                if (this.data.idx >= Object.keys(stall_data).length) {
+                    this.el.setAttribute('visible', false);
+                    return;
+                }
+
+                let title = this.el.querySelector('#info-title');
+                let graphic = this.el.querySelector('#info-png');
+                let panel = this.el.querySelector('#infoPanel');
+                let panel_title = panel.querySelector('#panel-title');
+                let panel_desc = panel.querySelector('#panel-desc');
+
+                title.setAttribute('text', {
+                    value: stall_data['stall-' + this.data.idx]['title']
+                });
+
+                panel_title.setAttribute('text', {
+                    value: stall_data['stall-' + this.data.idx]['title']
+                });
+
+                panel_desc.setAttribute('text', {
+                    value: stall_data['stall-' + this.data.idx]['text-content'].join('\n')
+                });
+            }
+        });
+
+        AFRAME.registerComponent('carousel', {
+            schema: {
+                speed: { type: 'number', default: 0.1 },
+            },
+            tick: function (t, dt) {
+                this.el.object3D.rotation.y += (dt / 1000) * this.data.speed;
+            }
+        });
+
+        AFRAME.registerComponent('slide-side', {
+            schema: {
+                direction: { type: 'string', default: "left" },
+            },
+            update: function (oldData) {
+                this.el.object3D.rotation.y += (this.data.direction === "left" ? 72 : -72);
+            }
+        });
     </script>
 </head>
 
@@ -161,23 +257,30 @@
                     {% endfor %}
                 {% endfor %}
             </script>
-
-            <script id="lobby" type="text/html">
-                <a-entity template="src: src/templates/lobby.html; type: html"></a-entity>
+        
+            <script id="slide1" type="text/html">
+                <a-entity template="src: src/templates/slide-1.template; type: html"></a-entity>
             </script>
-
-            <script id="amenities" type="text/html">
-                <a-entity template="src: src/templates/amenities.html; type: html"></a-entity>
+            <script id="slide2" type="text/html">
+                <a-entity template="src: src/templates/slide-2.template; type: html"></a-entity>
             </script>
-
-            <script id="extra" type="text/html">
-                <a-entity template="src: src/templates/slide1.template; type: html"></a-entity>
+            <script id="slide3" type="text/html">
+                <a-entity template="src: src/templates/slide-3.template; type: html"></a-entity>
+            </script>
+            <script id="slide4" type="text/html">
+                <a-entity template="src: src/templates/slide-4.template; type: html"></a-entity>
+            </script>
+            <script id="slide5" type="text/html">
+                <a-entity template="src: src/templates/slide-5.template; type: html"></a-entity>
             </script>
 
         </a-assets>
 
         <a-entity template="src: #ground"></a-entity>
-        <a-entity id="currentScene" template="src: #lobby"></a-entity>
+        <!-- <a-entity id="currentScene" template="src: #lobby"></a-entity> -->
+        <a-entity id="slideShow" template="src: #slide2" position="0 1.8 0"></a-entity>
+            <!-- template-looper="interval: 10; list: #slide2, #slide3, #slide4, #slide5, #slide1">
+        </a-entity> -->
 
         <!-- setup the general scene i.e. sky, lights, etc. -->
         <a-sky color="#ECECEC"></a-sky>
@@ -194,16 +297,32 @@
                     material="color: lightgreen; shader: flat;"></a-entity>
 
                 <a-entity id="hud" geometry="primitive: plane; height: .1; width: 1" position="0 -0.5 -1"
-                    material="color: lightgrey; opacity: 0.5">
+                    material="color: lightgrey; opacity: 0.5" visible="false">
                     <a-entity text="value: test; color: black; align: center; width: 1; opacity: 1"></a-entity>
                 </a-entity>
             </a-entity>
         </a-entity>
 
+
+        <!-- <a-entity id="cameraRig" spawn-in-circle="radius:2" networked="template:#rig-template;">
+            <a-entity id="player" camera position="0 1.6 0" look-controls networked="template:#avatar-template;">
+                <a-entity cursor
+                    raycaster="objects: .clickable; far: 20; showLine: true; lineColor: lightgreen; lineWidth: 0.5"
+                    position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
+                    material="color: lightgreen; shader: flat;"></a-entity>
+
+                <a-entity id="hud" geometry="primitive: plane; height: .1; width: 1" position="0 -0.5 -1"
+                    material="color: lightgrey; opacity: 0.5" visible="false">
+                    <a-entity text="value: test; color: black; align: center; width: 1; opacity: 1"></a-entity>
+                </a-entity>
+            </a-entity>
+        </a-entity> -->
+
         <!-- setup the controller rig -->
         <a-entity id="controllerRig">
-            <a-entity id="leftC" laser-controls="hand: left" raycaster="far: 20; "></a-entity>
-            <a-entity id="rightC" laser-controls="hand: right" raycaster="far: 20; "></a-entity>
+            <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
+            <a-entity id="leftC" laser-controls="hand: left" raycaster="far: 20; lineColor: red; lineOpacity: 0.5; objects: .raycastable"></a-entity>
+            <a-entity id="rightC" laser-controls="hand: right" raycaster="far: 20; lineColor: red; lineOpacity: 0.5; objects: .raycastable"></a-entity>
         </a-entity>
 
     </a-scene>

@@ -1,0 +1,17 @@
+{
+  "name": "dreamnest-vr-app",
+  "version": "1.0.0",
+  "description": "DreamNest VR App",
+  "main": "index.js",
+  "scripts": {
+    "build": "python src_py/build_slides.py",
+    "test": "python https-test.py"
+  },
+  "keywords": [],
+  "author": "krishna.yellapragada@students.iiit.ac.in",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

@@ -1,0 +1,81 @@
+{
+    "title": "Specifications",
+    "infographic": "public/assets/listing/infographics2/specifications/1-Structure-updated.webp",
+    "text_content": [
+        "Structure & Finishing"
+    ],
+    "children": [
+        "structure",
+        "flooring",
+        "doors",
+        "balcony",
+        "power",
+        "parking",
+        "security"
+    ],
+    "structure": {
+        "title": "Structure",
+        "infographic": "public/assets/listing/infographics2/specifications/1-Structure-updated.webp",
+        "text_content": [
+            "RCC-framed structure, resistant to wind and earthquake (Zone -2)."
+        ]
+    },
+    "flooring": {
+        "title": "Flooring",
+        "infographic": "public/assets/listing/infographics2/specifications/2-Flooring.webp",
+        "text_content": [
+            "Common Spaces (within flat) - Living, Dining , Drawing -Glazed Vitrified Tiles-Matt Finish of size 800 x 1600 mm with Spacer joint.",
+            "Private Spaces (within Flat) : Glazed Vitrified Tiles-Matt Finish of Size 600 x 1200 mm with Spacer Joint.",
+            "Bathroom_MBR : 1200 x 600 mm Cladding ; 1200 x 600 mm Flooring.",
+            "Bathroom_Others : 600 x 600 mm Cladding ; 600 x 600 mm Flooring.",
+            "Utility : 600 x 600 mm Cladding ; 600 x 600 mm Flooring."
+        ]
+    },
+    "doors": {
+        "title": "Designer Doors",
+        "infographic": "public/assets/listing/infographics2/specifications/landing-specification-3-updated.webp",
+        "text_content": [
+            "Main Door Frame : Teak wood frame finished with melamine spray polish.",
+            "Main Door Shutters : Veneer flush shutters with designer hardware.",
+            "Bedroom Doors Frame : Hard wood factory-made wooden frames.",
+            "Bedroom Doors Shutters : Two sides laminated flush shutters with designer hardware.",
+            "Bathroom Doors Frame : Granite frame.",
+            "Bathroom Doors Shutters : Two sides laminated flush shutters with designer hardware."
+        ]
+    },
+    "balcony": {
+        "title": "Glass Handrailing",
+        "infographic": "public/assets/listing/infographics2/specifications/landing-specification-20.webp",
+        "text_content": [
+            "Aesthetically designed laminated Glass railing systems with high-quality handrails, cap rails and railing base."
+        ]
+    },
+    "power": {
+        "title": "Power Backup",
+        "infographic": "public/assets/listing/infographics2/specifications/13-Power-backup.webp",
+        "text_content": [
+            "100% power backup.",
+            "DG set with acoustic enclosure and AMFs."
+        ]
+    },
+    "parking": {
+        "title": "Parking",
+        "infographic": "public/assets/listing/infographics2/specifications/7-Parking.webp",
+        "text_content": [
+            "Designated markings for each flat and visitor parking Signages at relevant points.",
+            "Car wash area will be provided in the basement.",
+            "EV Charging point cluster shall be given."
+        ]
+    },
+    "security": {
+        "title": "Security",
+        "infographic": "public/assets/listing/infographics2/specifications/14-Security.webp",
+        "text_content": [
+            "Sophisticated round-the-clock security / Surveillance System.",
+            "Panic button and intercom is provided in the lifts connected to the security room.",
+            "Solar power fencing all-round the boundary.",
+            "Surveillance cameras at the deisgnated areas as per design.",
+            "RFID based Boom Barrier system which allows only designated residents into the community."
+        ]
+    }
+}
