@@ -1,0 +1,30 @@
+{
+  "name": "dreamnest-app",
+  "version": "1.0-alpha",
+  "description": "Real Estate Marketing with DreamNest-app",
+  "main": "./server/easyrtc-server.js",
+  "scripts": {
+    "prepare": "cp -r dist examples",
+    "start": "node ./server/easyrtc-server.js",
+    "build": "python src_py/build_slides.py",
+    "test": "python https-test.py"
+  },
+  "dependencies": {
+    "networked-aframe": "^0.12.3"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "repository": {
+    "url": "https://github.com/krishna-py/dreamnest-app"
+  },
+  "author": "krishna.yellapragada@students.iiit.ac.in",
+  "license": "MIT",
+  "keywords": [
+    "dreamnest",
+    "VR",
+    "aframe",
+    "networked"
+  ]
+}
+

@@ -16,10 +16,10 @@
         content="DreamNest is revolutionizing the real estate industry by providing immersive VR experiences for home buyers and sellers. Our mission is to make house hunting more efficient, enjoyable, and accessible for everyone.">
     <meta name="twitter:card" content="summary">
 
-    <meta property="og:image" content="public/icons/banner_610_210.png">
-    <meta property="twitter:image" content="public/icons/banner_610_210.png">
+    <meta property="og:image" content="https://cdn.glitch.global/d56eb959-87cf-40a0-bd85-5265c65d0025/public%2Ficons%2Fbanner_610_210.png">
+    <meta property="twitter:image" content="https://cdn.glitch.global/d56eb959-87cf-40a0-bd85-5265c65d0025/public%2Ficons%2Fbanner_610_210.png">
 
-    <link rel="shortcut icon" href="public/icons/favicon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://cdn.glitch.global/d56eb959-87cf-40a0-bd85-5265c65d0025/public%2Ficons%2Ffavicon%2Ffavicon.ico" type="image/x-icon" crossorigin="anonymous">
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <!-- https://github.com/c-frame/aframe-extras -->
     <!-- usefull for checkpoint and controls  -->
@@ -71,47 +71,9 @@
     <script src="src/shader/gradient.js"></script>
     <script src="src/components/spawn-in-circle.component.js"></script>
     <script src="src/components/raycaster-listen.js"></script>
+  <script src="src/components/gems.js"></script>
 
     <script>
-        // Called by Networked-Aframe when connected to server (optional)
-        // (this api will change in future versions)
-        function onConnect() {
-            console.log('onConnect', new Date());
-        }
-
-        // Note the way we're establishing the NAF schema here; this is a bit awkward
-        // because of a recent bug found in the original handling. This mitigates that bug for now,
-        // until a refactor in the future that should fix the issue more cleanly.
-        // see issue https://github.com/networked-aframe/networked-aframe/issues/267
-
-        // This one is necessary, because tracking the .head child component's material's color
-        // won't happen unless we tell NAF to keep it in sync, like here.
-        NAF.schemas.getComponentsOriginal = NAF.schemas.getComponents;
-        NAF.schemas.getComponents = (template) => {
-            if (!NAF.schemas.hasTemplate('#avatar-template')) {
-                NAF.schemas.add({
-                    template: '#avatar-template',
-                    components: [
-                        // position and rotation are added by default if we don't include a template, but since
-                        // we also want to sync the color, we need to specify a custom template; if we didn't
-                        // include position and rotation in this custom template, they'd not be synced.
-                        'position',
-                        'rotation',
-
-                        // this is how we sync a particular property of a particular component for a particular
-                        // child element of template instances.
-                        {
-                            selector: '.head',
-                            component: 'material',
-                            property: 'color' // property is optional; if excluded, syncs everything in the component schema
-                        }
-                    ]
-                });
-            }
-            const components = NAF.schemas.getComponentsOriginal(template);
-            return components;
-        };
-
 
         /* global AFRAME */
         AFRAME.registerComponent('info-panel', {
@@ -210,7 +172,7 @@
 
         AFRAME.registerComponent('slide-control', {
             init: function () {
-                this.slides = ["#slide1", "#slide2", "#slide3", "#slide4", "#slide5", "#slide6", "#slide7", "#slide8", "#slide9"];
+                this.slides = ["#slide1", "#slide6", "#slide2", "#slide7", "#slide8", "#slide3"];
                 this.currentSlide = 0;
                 this.el.addEventListener('bbuttondown', this.bButtonDown);
                 this.el.addEventListener('bbuttonup', this.bButtonUp);
@@ -228,24 +190,17 @@
                 document.getElementById('hud-info').setAttribute('text', {
                     value: ""
                 });
-
-                this.currentSlide = Math.max(this.currentSlide - 1, 0);
-                document.getElementById('slideShow').setAttribute('template', {
-                    src: this.slides[this.currentSlide]
-                });
             },
             aButtonDown: function (evt) {
-                this.currentSlide = Math.min(this.currentSlide + 1, this.slides.length - 1);
-
                 document.getElementById('hud').setAttribute('visible', true);
                 document.getElementById('hud-info').setAttribute('text', {
-                    value: this.slides[this.currentSlide - 1] +" --> " + this.slides[this.currentSlide]
+                    value: "Previous Slide"
                 });
             },
             aButtonUp: function (evt) {
                 document.getElementById('hud').setAttribute('visible', false);
-                document.getElementById('slideShow').setAttribute('template', {
-                    src: this.slides[this.currentSlide]
+                document.getElementById('hud-info').setAttribute('text', {
+                    value: ""
                 });
             }
         });
@@ -254,7 +209,7 @@
 
 <body>
     <a-scene physics shadow="type: pcfsoft" xr-mode-ui="enterVRButton: #vrButton" stats
-        networked-scene="serverURL: http://192.168.1.38:8080/; app: dreamnest-app; room: local-test; debug: true; adapter: easyrtc; audio: true;"
+        networked-scene="app: dreamnest-app; room: local-test; debug: true; adapter: easyrtc; audio: true;"
         renderer="physicallyCorrectLights: true;">
         <a-assets>
             <a-entity template="src: src/assets.html; type: html"></a-entity>
@@ -284,9 +239,9 @@
 
             <script id="ground" type="text/x-nunjucks-template">
                 <a-plane id="ground" class="clickable" position="0 -0.65 0" rotation="-90 0 0" width="30" height="30" mixin="gd_square_tiles"></a-plane>
-                {% for x in range(-3, 3) %}
-                    {% for z in range(-3, 3) %}
-                        <a-entity template="src: src/templates/ground.template; type: handlebars"
+                {% for x in range(-1, 2) %}
+                    {% for z in range(-1, 2) %}
+                        <a-entity template="src: src/templates/ground.html; type: handlebars"
                             data-compass="#compass" 
                             data-pos1="{{ x * 4 }} 0.05 {{ z * 4 - 4 }}"
                             data-pos2="{{ x * 4 }} 0.05 {{ z * 4 + 4 }}"
@@ -301,40 +256,40 @@
             </script>
 
             <script id="slide1" type="text/html">
-                <a-entity template="src: src/templates/slide-1.template; type: html"></a-entity>
+                <a-entity template="src: src/templates/slide-1.html; type: html"></a-entity>
             </script>
             <script id="slide2" type="text/html">
-                <a-entity template="src: src/templates/slide-2.template; type: html"></a-entity>
+                <a-entity template="src: src/templates/slide-2.html; type: html"></a-entity>
             </script>
-            <script id="slide3" type="text/html">
-                <a-entity template="src: src/templates/slide-3.template; type: html"></a-entity>
+             <script id="slide3" type="text/html">
+                <a-entity template="src: src/templates/slide-3.html; type: html"></a-entity>
             </script>
-            <script id="slide4" type="text/html">
-                <a-entity template="src: src/templates/slide-4.template; type: html"></a-entity>
+<!--            <script id="slide4" type="text/html">
+                <a-entity template="src: src/templates/slide-4.html; type: html"></a-entity>
             </script>
             <script id="slide5" type="text/html">
-                <a-entity template="src: src/templates/slide-5.template; type: html"></a-entity>
-            </script>
+                <a-entity template="src: src/templates/slide-5.html; type: html"></a-entity>
+            </script> -->
             <script id="slide6" type="text/html">
-                <a-entity template="src: src/templates/project-amenities.template; type: html"></a-entity>
+                <a-entity template="src: src/templates/project-amenities.html; type: html"></a-entity>
             </script>
             <script id="slide7" type="text/html">
-                <a-entity template="src: src/templates/unitA.template; type: html"></a-entity>
+                <a-entity template="src: src/templates/unitA.html; type: html"></a-entity>
             </script>
             <script id="slide8" type="text/html">
-                <a-entity template="src: src/templates/unitB.template; type: html"></a-entity>
+                <a-entity template="src: src/templates/unitB.html; type: html"></a-entity>
             </script>
-            <script id="slide9" type="text/html">
-                <a-entity template="src: src/templates/unitC.template; type: html"></a-entity>
+<!--             <script id="slide9" type="text/html">
+                <a-entity template="src: src/templates/unitC.html; type: html"></a-entity>
             </script>
-
+ -->
         </a-assets>
 
         <a-entity template="src: #ground"></a-entity>
         <!-- <a-entity id="currentScene" template="src: #lobby"></a-entity> -->
-        <a-entity id="slideShow" template="src: #slide6" position="0 1.8 0"></a-entity>
-            <!-- template-looper="interval: 120; list: #slide2, #slide3, #slide4, #slide5, #slide1">
-        </a-entity> -->
+        <a-entity id="slideShow" template="src: #slide1" position="0 1.8 0"
+            template-looper="interval: 30; list: #slide6, #slide2, #slide7, #slide8, #slide3, #slide1">
+        </a-entity>
 
         <!-- setup the general scene i.e. sky, lights, etc. -->
         <!-- Sky Setup -->
@@ -379,7 +334,8 @@
     <div class="actions">
         <button id="mic-btn" type="button" class="button">Mute Mic</button>
     </div>
-    <script>
+  <script>
+  
         // Mic status
         let micEnabled = true;
         // Mic button element
@@ -396,7 +352,43 @@
             micBtnEle.textContent = micEnabled ? 'Mute Mic' : 'Unmute Mic';
           });
         }
-    </script>
+    
+    
+        // Note the way we're establishing the NAF schema here; this is a bit awkward
+        // because of a recent bug found in the original handling. This mitigates that bug for now,
+        // until a refactor in the future that should fix the issue more cleanly.
+        // see issue https://github.com/networked-aframe/networked-aframe/issues/267
+
+        // This one is necessary, because tracking the .head child component's material's color
+        // won't happen unless we tell NAF to keep it in sync, like here.
+        NAF.schemas.getComponentsOriginal = NAF.schemas.getComponents;
+        NAF.schemas.getComponents = (template) => {
+            if (!NAF.schemas.hasTemplate('#avatar-template')) {
+                NAF.schemas.add({
+                    template: '#avatar-template',
+                    components: [
+                        // position and rotation are added by default if we don't include a template, but since
+                        // we also want to sync the color, we need to specify a custom template; if we didn't
+                        // include position and rotation in this custom template, they'd not be synced.
+                        'position',
+                        'rotation',
+
+                        // this is how we sync a particular property of a particular component for a particular
+                        // child element of template instances.
+                        {
+                            selector: '.head',
+                            component: 'material',
+                            property: 'color' // property is optional; if excluded, syncs everything in the component schema
+                        }
+                    ]
+                });
+            }
+            const components = NAF.schemas.getComponentsOriginal(template);
+            return components;
+        };
+
+
+  </script>
 
 </body>
 

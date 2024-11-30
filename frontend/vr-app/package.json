@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "python src_py/build_slides.py",
-    "test": "python https-test.py"
+    "test": "python https-test.py",
+    "start": "node ./server/easyrtc-server.js"
   },
   "keywords": [],
   "author": "krishna.yellapragada@students.iiit.ac.in",
